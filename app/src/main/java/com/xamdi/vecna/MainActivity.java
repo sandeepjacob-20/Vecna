@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("CAMERA", "reached here");
             String result;
             result = classifier.recognizemood(b);
-
+            //this is a text comment to check the vcs system
             tv.setText(result);
         }
 
