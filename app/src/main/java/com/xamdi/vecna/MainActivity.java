@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -198,7 +199,18 @@ public class MainActivity extends AppCompatActivity {
         private void detect(Bitmap b) {
             Log.e("CAMERA", "reached here");
             String result;
+            Intent intent = new Intent(MainActivity.this,AngryActivity.class);
             result = classifier.recognizemood(b);
+            switch (result){
+                case "Angry":
+                    intent = new Intent(MainActivity.this, AngryActivity.class);
+                    break;
+                case "Happy":
+                    intent = new Intent(MainActivity.this,HappyActivity.class);
+                    break;
+
+            }
+            startActivity(intent);
             //this is a text comment to check the vcs system
             tv.setText(result);
         }
