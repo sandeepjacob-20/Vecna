@@ -82,13 +82,15 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Detecting mood...", Toast.LENGTH_SHORT).show();
             int fcount;
             Bitmap facedet = convert(bmp, Bitmap.Config.RGB_565);
-            fcount = setFace(facedet);
+            Helper h = setFace(facedet);
+            fcount = h.count;
+            croppedbmp = h.cropped_img;
             Toast.makeText(MainActivity.this, "Face count - " + fcount, Toast.LENGTH_SHORT).show();
 
             //calling mood detection method
             if (fcount == 1) {
                 //Toast.makeText(MainActivity.this, "Detecting mood...", Toast.LENGTH_SHORT).show();
-                detect(facedet);
+                detect(croppedbmp);
             }
             if (fcount > 1) {
                 Toast.makeText(MainActivity.this, "MULTIPLE FACES DETECTED - RETAKE SNAP WITH SINGLE FACE", Toast.LENGTH_SHORT).show();
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //detection of faces
-        public int setFace(Bitmap b) {
+        public Helper setFace(Bitmap b) {
             Bitmap mFaceBitmap = b;
             FaceDetector fd;
             FaceDetector.Face[] faces = new FaceDetector.Face[4];
@@ -138,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("FaceDetection - ", "setFace(): " + e.toString());
                 //return count;
             }
-
+            Log.e("count in main",String.valueOf(count));
             //get cropped face
             PointF midpoint = new PointF();
             int[] fpx = null;
@@ -188,18 +190,17 @@ public class MainActivity extends AppCompatActivity {
                 if (x < 0 || y < 0 || x2 < 0 || y2 < 0) {
                     Toast.makeText(MainActivity.this, "PLEASE RETAKE SNAP AND POSITION YOURSELF A BIT FAR FROM CAMERA", Toast.LENGTH_LONG).show();
                 } else {
-                    Bitmap croppedbmp = Bitmap.createBitmap(b, x, y, width, height);
-                    Bitmap done = Bitmap.createScaledBitmap(croppedbmp, croppedbmp.getWidth(), croppedbmp.getHeight(), false);
+                    croppedbmp = Bitmap.createBitmap(b, x, y, width, height);
                 }
             }
-            return count;
-
+            Helper ret_h = new Helper(croppedbmp, count);
+            return ret_h;
         }
 
         private void detect(Bitmap b) {
             Log.e("CAMERA", "reached here");
             String result;
-            Intent intent = new Intent(MainActivity.this,AngryActivity.class);
+            Intent intent = new Intent(MainActivity.this,MainActivity.class);
             result = classifier.recognizemood(b);
             switch (result){
                 case "Angry":
@@ -208,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
                 case "Happy":
                     intent = new Intent(MainActivity.this,HappyActivity.class);
                     break;
+
 
             }
             startActivity(intent);
