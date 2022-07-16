@@ -2,9 +2,14 @@ package com.xamdi.vecna;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -19,6 +24,7 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 
 import android.media.FaceDetector;
+import android.os.Build;
 import android.os.Bundle;
 
 
@@ -39,16 +45,51 @@ public class MainActivity extends AppCompatActivity {
     private Button btn;
     private TextView tv;
     SurfaceView surface;
+    NotificationCompat.Builder happy,neutral;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Creating the notification channel
+        createNotificationChannelHappy();
+        createNotificationChannelNeutral();
+
         // If camera permissions is not granted, will request for permission
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{
                     Manifest.permission.CAMERA
             },request_camera_code);
         }
+
+        // Create an notification intent for Happy emotion
+        Intent happy_intent = new Intent(this, HappyActivity.class);
+        happy_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntentHappy = PendingIntent.getActivity(this, 0, happy_intent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Create an notification intent for Neutral emotion
+        Intent neutral_intent = new Intent(this, NeutralActivity.class);
+        neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntentNeutral = PendingIntent.getActivity(this, 0, neutral_intent, PendingIntent.FLAG_IMMUTABLE);
+
+        //Happy notification Builder
+        happy = new NotificationCompat.Builder(this, "1")
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setContentTitle("Vecna")
+                .setContentText("Feeling Happy ?")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntentHappy)
+                .setAutoCancel(true);
+        //Neutral notification Builder
+        neutral = new NotificationCompat.Builder(this, "2")
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setContentTitle("Vecna")
+                .setContentText("Wanna do something fun ?")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntentNeutral)
+                .setAutoCancel(true);
+
         surface = findViewById(R.id.surfaceView);
         btn = findViewById(R.id.button);
         tv = findViewById(R.id.tv);
@@ -214,22 +255,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private void detect(Bitmap b) {
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
+
+            // notificationId is a unique int for each notification that you must define
+            //notificationManager.notify(1, builder.build());
             //Sends the image to the Model to detect emotion and calls appropriate activity
             Log.e("CAMERA", "reached here");
             String result;
-            Intent intent = new Intent(MainActivity.this,MainActivity.class);
             result = classifier.recognizemood(b);
             switch (result){
                 case "Angry":
-                    intent = new Intent(MainActivity.this, AngryActivity.class);
+                    //intent = new Intent(MainActivity.this, AngryActivity.class);
                     break;
                 case "Happy":
-                    intent = new Intent(MainActivity.this,HappyActivity.class);
+                    //calls notification on detection
+                    notificationManager.notify(1, happy.build());
+                    break;
+                case "Neutral":
+                    //calls notification on detection
+                    notificationManager.notify(2, neutral.build());
                     break;
 
 
             }
-            startActivity(intent);
             tv.setText(result);
         }
 
@@ -282,6 +330,34 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
+    private void createNotificationChannelHappy() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("1", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+    private void createNotificationChannelNeutral() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("2", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
 }
