@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // If camera permissions is not granted, will request for permission
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{
                     Manifest.permission.CAMERA
@@ -56,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //creates a button listener to capture image on button click
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //On button click starts the camera thread
                 Thread t = new CameraThread();
                 t.start();
             }
@@ -76,20 +80,30 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onPictureTaken(byte[] bytes, Camera camera) {
+            //Creates a bitmap image from the camera stream
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inMutable = true;
             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
+
+            // Used to rotate image for better face detection
+            Matrix matrix = new Matrix();
+            matrix.postRotate(270);
+            Bitmap rotatedBitmap = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
+
             Toast.makeText(MainActivity.this, "Detecting mood...", Toast.LENGTH_SHORT).show();
+
+            //Convert Image to RGB_565 format
+            Bitmap facedet = convert(rotatedBitmap, Bitmap.Config.RGB_565);
+
+            //Determines the faces in the image and crop out the face region
             int fcount;
-            Bitmap facedet = convert(bmp, Bitmap.Config.RGB_565);
             Helper h = setFace(facedet);
-            fcount = h.count;
-            croppedbmp = h.cropped_img;
+            fcount = h.count; //Number of faces in the image
+            croppedbmp = h.cropped_img; //Bitmap image of the face only
             Toast.makeText(MainActivity.this, "Face count - " + fcount, Toast.LENGTH_SHORT).show();
 
             //calling mood detection method
             if (fcount == 1) {
-                //Toast.makeText(MainActivity.this, "Detecting mood...", Toast.LENGTH_SHORT).show();
                 detect(croppedbmp);
             }
             if (fcount > 1) {
@@ -132,15 +146,16 @@ public class MainActivity extends AppCompatActivity {
             }
             int mFaceHeight = mFaceBitmap.getHeight();
             int mFaceWidth = mFaceBitmap.getWidth();
+            //Counting the number of faces in the image
             try {
                 fd = new FaceDetector(mFaceWidth, mFaceHeight, 4);
                 count = fd.findFaces(mFaceBitmap, faces);
-                //return count;
             } catch (Exception e) {
                 Log.e("FaceDetection - ", "setFace(): " + e.toString());
-                //return count;
             }
             Log.e("count in main",String.valueOf(count));
+
+
             //get cropped face
             PointF midpoint = new PointF();
             int[] fpx = null;
@@ -193,11 +208,13 @@ public class MainActivity extends AppCompatActivity {
                     croppedbmp = Bitmap.createBitmap(b, x, y, width, height);
                 }
             }
+            //Returns both the cropped image and the count as objects of helper class
             Helper ret_h = new Helper(croppedbmp, count);
             return ret_h;
         }
 
         private void detect(Bitmap b) {
+            //Sends the image to the Model to detect emotion and calls appropriate activity
             Log.e("CAMERA", "reached here");
             String result;
             Intent intent = new Intent(MainActivity.this,MainActivity.class);
@@ -213,7 +230,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
             startActivity(intent);
-            //this is a text comment to check the vcs system
             tv.setText(result);
         }
 
@@ -221,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     class CameraThread extends Thread {
+        //Thread that deals with taking the picture
         public CameraThread() {
         }
 
@@ -229,12 +246,22 @@ public class MainActivity extends AppCompatActivity {
             super.run();
             try {
 
-                Camera c = Camera.open(1);
+                Camera c = Camera.open(1); // cameraID 1 is the front facing camera
                 Camera.Parameters params = c.getParameters();
+                //setting autofocus
                 if (params.getSupportedFocusModes().contains(
                         Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
                     params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
                 }
+
+                //Disabling camera sound if possible
+                Camera.CameraInfo info = new Camera.CameraInfo();
+                Camera.getCameraInfo(1, info);
+                if (info.canDisableShutterSound) {
+                    c.enableShutterSound(false);
+                }
+
+                //Taking the photo
                 c.setParameters(params);
                 c.setPreviewDisplay(surface.getHolder());
                 c.startPreview();
@@ -255,4 +282,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }
