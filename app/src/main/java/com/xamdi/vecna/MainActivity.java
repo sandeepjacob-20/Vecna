@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn;
     private TextView tv;
     SurfaceView surface;
-    NotificationCompat.Builder happy,neutral;
+    NotificationCompat.Builder happy,neutral,angry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         //Creating the notification channel
         createNotificationChannelHappy();
         createNotificationChannelNeutral();
+        createNotificationChannelAngry();
 
         // If camera permissions is not granted, will request for permission
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
@@ -71,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
         neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntentNeutral = PendingIntent.getActivity(this, 0, neutral_intent, PendingIntent.FLAG_IMMUTABLE);
 
+        // Create an notification intent for Angry emotion
+        Intent angry_intent = new Intent(this, AngryActivity.class);
+        neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntentAngry = PendingIntent.getActivity(this, 0, angry_intent, PendingIntent.FLAG_IMMUTABLE);
+
         //Happy notification Builder
         happy = new NotificationCompat.Builder(this, "1")
                 .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
@@ -88,6 +94,15 @@ public class MainActivity extends AppCompatActivity {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentNeutral)
+                .setAutoCancel(true);
+        //Angry notification Builder
+        angry = new NotificationCompat.Builder(this, "3")
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setContentTitle("Vecna")
+                .setContentText("Felling pissed ?")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntentAngry)
                 .setAutoCancel(true);
 
         surface = findViewById(R.id.surfaceView);
@@ -265,7 +280,8 @@ public class MainActivity extends AppCompatActivity {
             result = classifier.recognizemood(b);
             switch (result){
                 case "Angry":
-                    //intent = new Intent(MainActivity.this, AngryActivity.class);
+                    //calls notification on detection
+                    notificationManager.notify(3, angry.build());
                     break;
                 case "Happy":
                     //calls notification on detection
@@ -345,6 +361,7 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
+
     private void createNotificationChannelNeutral() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -353,6 +370,22 @@ public class MainActivity extends AppCompatActivity {
             String description = getString(R.string.channel_description);
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("2", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void createNotificationChannelAngry() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Angry";
+            String description = "Detected Angry Emotion";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("3", name, importance);
             channel.setDescription(description);
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
