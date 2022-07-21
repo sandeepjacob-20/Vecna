@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn;
     private TextView tv;
     SurfaceView surface;
-    NotificationCompat.Builder happy,neutral,angry;
+    NotificationCompat.Builder happy,neutral,angry,sad,surprise;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannelHappy();
         createNotificationChannelNeutral();
         createNotificationChannelAngry();
+        createNotificationChannelSad();
+        createNotificationChannelSurprise();
 
         // If camera permissions is not granted, will request for permission
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
@@ -76,6 +78,16 @@ public class MainActivity extends AppCompatActivity {
         Intent angry_intent = new Intent(this, AngryActivity.class);
         neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntentAngry = PendingIntent.getActivity(this, 0, angry_intent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Create an notification intent for Sad emotion
+        Intent sad_intent = new Intent(this, SadActivity.class);
+        neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntentSad = PendingIntent.getActivity(this, 0, sad_intent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Create an notification intent for Sad emotion
+        Intent surprise_intent = new Intent(this, SurpriseActivity.class);
+        neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntentSurprise = PendingIntent.getActivity(this, 0, surprise_intent, PendingIntent.FLAG_IMMUTABLE);
 
         //Happy notification Builder
         happy = new NotificationCompat.Builder(this, "1")
@@ -104,6 +116,25 @@ public class MainActivity extends AppCompatActivity {
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentAngry)
                 .setAutoCancel(true);
+        //Sad notification Builder
+        sad = new NotificationCompat.Builder(this, "4")
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setContentTitle("Vecna")
+                .setContentText("karayugeyano unni ?")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntentSad)
+                .setAutoCancel(true);
+        //Surprise notification Builder
+        surprise = new NotificationCompat.Builder(this, "5")
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setContentTitle("Vecna")
+                .setContentText("Thangal Nyettiyo ?")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntentSurprise)
+                .setAutoCancel(true);
+
 
         surface = findViewById(R.id.surfaceView);
         btn = findViewById(R.id.button);
@@ -291,8 +322,14 @@ public class MainActivity extends AppCompatActivity {
                     //calls notification on detection
                     notificationManager.notify(2, neutral.build());
                     break;
-
-
+                case "Sad":
+                    //calls notification on detection
+                    notificationManager.notify(4, sad.build());
+                    break;
+                case "Surprise":
+                    //calls notification on detection
+                    notificationManager.notify(5, surprise.build());
+                    break;
             }
             tv.setText(result);
         }
@@ -386,6 +423,38 @@ public class MainActivity extends AppCompatActivity {
             String description = "Detected Angry Emotion";
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("3", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void createNotificationChannelSad() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Sad";
+            String description = "Detected Sad Emotion";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("4", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void createNotificationChannelSurprise() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Surprise";
+            String description = "Detected Surprise Emotion";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("5", name, importance);
             channel.setDescription(description);
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this

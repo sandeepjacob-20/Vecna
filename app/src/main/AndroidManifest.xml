@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vecna">
         <activity
+            android:name=".SurpriseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SadActivity"
+            android:exported="false" />
+        <activity
             android:name=".NeutralActivity"
             android:exported="false" />
         <activity
