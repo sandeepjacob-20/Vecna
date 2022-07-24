@@ -39,6 +39,7 @@ import android.widget.Toast;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+    private static int SPLASH_SCREEN_TIME_OUT=2000;
     private static final int request_camera_code = 100;
     private Bitmap croppedbmp;
     public Classifier classifier;
