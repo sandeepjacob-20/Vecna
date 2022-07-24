@@ -4,16 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HappyActivity">
+    tools:context=".HappyActivity"
+    android:background="@drawable/bg2">
+        <HorizontalScrollView
+            android:layout_width="402dp"
+            android:layout_height="262dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.989">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Happy huh ?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
+                <ImageButton
+                    android:id="@+id/button2"
+                    android:layout_width="243dp"
+                    android:layout_height="249dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/song1" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="243dp"
+                    android:layout_height="249dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="243dp"
+                    android:layout_height="249dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="243dp"
+                    android:layout_height="249dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="243dp"
+                    android:layout_height="249dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Button" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="243dp"
+                    android:layout_height="249dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Button" />
+            </LinearLayout>
+
+        </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

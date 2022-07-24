@@ -5,7 +5,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -24,6 +23,7 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 
 import android.media.FaceDetector;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     SurfaceView surface;
     NotificationCompat.Builder happy,neutral,angry,sad,surprise;
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannelAngry();
         createNotificationChannelSad();
         createNotificationChannelSurprise();
+
+        mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.cornfield_chase);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
 
         // If camera permissions is not granted, will request for permission
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
@@ -462,5 +467,22 @@ public class MainActivity extends AppCompatActivity {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
+    }
+
+    protected void onResume(){
+        super.onResume();
+        mediaPlayer.start();
+    }
+
+    protected void onPause(){
+        super.onPause();
+        mediaPlayer.pause();
+    }
+
+    protected void onDestroy(){
+        super.onDestroy();
+        mediaPlayer.stop();
+        mediaPlayer.release();
+
     }
 }
