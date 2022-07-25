@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannelFear();
         createNotificationChannelDisgust();
 
-        mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.cornfield_chase);
+        mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.drift_off);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
