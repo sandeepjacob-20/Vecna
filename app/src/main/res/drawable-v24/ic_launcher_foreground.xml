@@ -20,7 +20,7 @@
                     android:offset="1.0" />
             </gradient>
         </aapt:attr>
-    </path>2
+    </path>
     <path
         android:fillColor="#FFFFFF"
         android:fillType="nonZero"
