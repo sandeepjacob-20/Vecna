@@ -38,7 +38,7 @@
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/song1" />
+                    android:src="@drawable/happy_p1" />
 
                 <Button
                     android:id="@+id/button3"
