@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vecna">
         <activity
+            android:name=".DisgustActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FearActivity"
+            android:exported="false" />
+        <activity
             android:name=".SurpriseActivity"
             android:exported="false" />
         <activity
@@ -37,7 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

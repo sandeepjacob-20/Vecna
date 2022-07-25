@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn;
     private TextView tv;
     SurfaceView surface;
-    NotificationCompat.Builder happy,neutral,angry,sad,surprise;
+    NotificationCompat.Builder happy,neutral,angry,sad,surprise,fear,disgust;
     private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannelAngry();
         createNotificationChannelSad();
         createNotificationChannelSurprise();
+        createNotificationChannelFear();
+        createNotificationChannelDisgust();
 
         mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.cornfield_chase);
         mediaPlayer.setLooping(true);
@@ -70,30 +72,40 @@ public class MainActivity extends AppCompatActivity {
             },request_camera_code);
         }
 
-        // Create an notification intent for Happy emotion
+        // Create a notification intent for Happy emotion
         Intent happy_intent = new Intent(this, HappyActivity.class);
         happy_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntentHappy = PendingIntent.getActivity(this, 0, happy_intent, PendingIntent.FLAG_IMMUTABLE);
 
-        // Create an notification intent for Neutral emotion
+        // Create a notification intent for Neutral emotion
         Intent neutral_intent = new Intent(this, NeutralActivity.class);
         neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntentNeutral = PendingIntent.getActivity(this, 0, neutral_intent, PendingIntent.FLAG_IMMUTABLE);
 
-        // Create an notification intent for Angry emotion
+        // Create a notification intent for Angry emotion
         Intent angry_intent = new Intent(this, AngryActivity.class);
         neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntentAngry = PendingIntent.getActivity(this, 0, angry_intent, PendingIntent.FLAG_IMMUTABLE);
 
-        // Create an notification intent for Sad emotion
+        // Create a notification intent for Sad emotion
         Intent sad_intent = new Intent(this, SadActivity.class);
         neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntentSad = PendingIntent.getActivity(this, 0, sad_intent, PendingIntent.FLAG_IMMUTABLE);
 
-        // Create an notification intent for Sad emotion
+        // Create a notification intent for Sad emotion
         Intent surprise_intent = new Intent(this, SurpriseActivity.class);
         neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntentSurprise = PendingIntent.getActivity(this, 0, surprise_intent, PendingIntent.FLAG_IMMUTABLE);
+
+        //create a notification intent for Fear emotion
+        Intent fear_intent = new Intent(this, FearActivity.class);
+        neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntentFear = PendingIntent.getActivity(this, 0,fear_intent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Create a notification intent for Angry emotion
+        Intent disgust_intent = new Intent(this, DisgustActivity.class);
+        neutral_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntentDisgust = PendingIntent.getActivity(this, 0, disgust_intent, PendingIntent.FLAG_IMMUTABLE);
 
         //Happy notification Builder
         happy = new NotificationCompat.Builder(this, "1")
@@ -139,6 +151,25 @@ public class MainActivity extends AppCompatActivity {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentSurprise)
+                .setAutoCancel(true);
+
+        //fear notification Builder
+        fear = new NotificationCompat.Builder(this, "6")
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setContentTitle("Vecna")
+                .setContentText("Aarelum bhayakuno ?")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntentFear)
+                .setAutoCancel(true);
+        //Disgust notification Builder
+        disgust = new NotificationCompat.Builder(this, "7")
+                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setContentTitle("Vecna")
+                .setContentText("feeling Disgust ?")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntentDisgust)
                 .setAutoCancel(true);
 
 
@@ -336,6 +367,14 @@ public class MainActivity extends AppCompatActivity {
                     //calls notification on detection
                     notificationManager.notify(5, surprise.build());
                     break;
+                case "Fear":
+                    //calls notification on detection
+                    notificationManager.notify(6,fear.build());
+                    break;
+                case "Disgust":
+                    //calls notification on detection
+                    notificationManager.notify(7,disgust.build());
+                    break;
             }
             tv.setText(result);
         }
@@ -461,6 +500,38 @@ public class MainActivity extends AppCompatActivity {
             String description = "Detected Surprise Emotion";
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("5", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void createNotificationChannelFear() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Fear";
+            String description = "Detected Fear Emotion";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("6", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void createNotificationChannelDisgust() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Disgust";
+            String description = "Detected Disgust Emotion";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("7", name, importance);
             channel.setDescription(description);
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
