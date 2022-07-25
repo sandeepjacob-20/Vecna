@@ -36,14 +36,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_SCREEN_TIME_OUT=2000;
+    private TextView greeting_field;
     private static final int request_camera_code = 100;
     private Bitmap croppedbmp;
     public Classifier classifier;
     private Button btn;
     private TextView tv;
+    private String greeting;
     SurfaceView surface;
     NotificationCompat.Builder happy,neutral,angry,sad,surprise,fear,disgust;
     private MediaPlayer mediaPlayer;
@@ -59,6 +63,23 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannelSurprise();
         createNotificationChannelFear();
         createNotificationChannelDisgust();
+
+        greeting_field = findViewById(R.id.greeting);
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+
+        if(hour>= 12 && hour < 17){
+            greeting = "Good Afternoon";
+        } else if(hour >= 17 && hour < 21){
+            greeting = "Good Evening";
+        } else if(hour >= 21 && hour < 24){
+            greeting = "Good Night";
+        } else {
+            greeting = "Good Morning";
+        }
+        greeting_field.setText(greeting);
 
         mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.bgm);
         mediaPlayer.setLooping(true);

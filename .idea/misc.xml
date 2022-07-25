@@ -3,24 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Test apps/Vecna/app/src/main/res/drawable/button.xml" value="0.1355" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/drawable/button1.xml" value="0.134" />
-        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_angry.xml" value="0.2" />
-        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_happy.xml" value="0.2" />
-        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_angry.xml" value="0.22" />
+        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_disgust.xml" value="0.2" />
+        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_fear.xml" value="0.19583333333333333" />
+        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_happy.xml" value="0.19041916167664671" />
+        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_neutral.xml" value="0.2" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_sad.xml" value="0.2" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_surprise.xml" value="0.2" />
-        <entry key="..\:/Vecna/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1015" />
-        <entry key="..\:/Vecna/app/src/main/res/drawable/ic_baseline_add_alert_24.xml" value="0.1015" />
-        <entry key="..\:/Vecna/app/src/main/res/font/annie_use_your_telescope.xml" value="0.18796296296296297" />
-        <entry key="..\:/Vecna/app/src/main/res/font/baloo_bhai.xml" value="0.18796296296296297" />
-        <entry key="..\:/Vecna/app/src/main/res/layout/activity_angry.xml" value="0.25" />
-        <entry key="..\:/Vecna/app/src/main/res/layout/activity_disgust.xml" value="0.25" />
-        <entry key="..\:/Vecna/app/src/main/res/layout/activity_fear.xml" value="0.2" />
-        <entry key="..\:/Vecna/app/src/main/res/layout/activity_happy.xml" value="0.25" />
-        <entry key="..\:/Vecna/app/src/main/res/layout/activity_main.xml" value="0.176" />
-        <entry key="..\:/Vecna/app/src/main/res/layout/activity_neutral.xml" value="0.25" />
-        <entry key="..\:/Vecna/app/src/main/res/layout/main.xml" value="0.176" />
       </map>
     </option>
   </component>

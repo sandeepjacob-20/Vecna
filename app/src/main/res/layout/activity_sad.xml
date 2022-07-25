@@ -2,28 +2,33 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="729dp"
+    android:layout_height="wrap_content"
     android:layout_width="409dp"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scaleType="centerInside"
+    android:background="@drawable/bgh">
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".SadActivity">
+        tools:context=".HappyActivity">
 
 
         <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
             android:layout_width="402dp"
             android:layout_height="262dp"
             android:layout_marginTop="44dp"
             android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -31,54 +36,30 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/button2"
+                    android:id="@+id/playlist1"
                     android:layout_width="243dp"
                     android:layout_height="249dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:scaleType="centerInside"
                     android:src="@drawable/happy_p1" />
 
-                <Button
-                    android:id="@+id/button3"
+                <ImageButton
+                    android:id="@+id/playlist2"
                     android:layout_width="243dp"
                     android:layout_height="249dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:src="@drawable/happy_p2" />
 
-                <Button
-                    android:id="@+id/button4"
+                <ImageButton
+                    android:id="@+id/playlist3"
                     android:layout_width="243dp"
                     android:layout_height="249dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:src="@drawable/happy_p3" />
 
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="243dp"
-                    android:layout_height="249dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="243dp"
-                    android:layout_height="249dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="243dp"
-                    android:layout_height="249dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Button" />
             </LinearLayout>
 
         </HorizontalScrollView>
@@ -87,14 +68,121 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="584dp"
-            android:text="Song recomendation for you "
+            android:layout_marginTop="500dp"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="Song recommendations for you :"
             android:textColor="@color/black"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.122"
+            app:layout_constraintHorizontal_bias="0.079"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="260dp"
+            android:layout_height="121dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/annie_use_your_telescope"
+            android:gravity="center"
+            android:text="SAD"
+            android:textColor="@color/black"
+            android:textSize="96sp"
+            app:autoSizeTextType="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="376dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="Some Things to Do When you feel sad :"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="367dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="196dp"
+            android:ems="10"
+            android:fontFamily="@font/baloo_bhai"
+            android:gravity="start|top"
+            android:text="\u2022 Write a journal. Take a Journal and express your emotions.
+            \n\u2022 Allow yourself to be sad. Denying such feelings can do more damage with time.
+            \n\u2022 Listening to or making music that expresses how you feel.
+            \n\u2022 Connecting with others or talking to a friend or loved one.
+            \n\u2022 Doing things that you enjoy like playing with your pets, or creating something, like art, music, crafts, gardening, mosaics"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.619"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="900dp"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="Movie recommendations for you: "
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/imageslider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:iss_auto_cycle="true"
+                    app:iss_corner_radius="10"
+                    app:iss_delay="2000"
+                    app:iss_period="2000" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/morehelp"
+            android:layout_width="144dp"
+            android:layout_height="27dp"
+            android:layout_margin="70dp"
+            android:layout_marginEnd="1dp"
+            android:background="@null"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="get more help"
+            android:textColor="@color/blue1"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.719"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            app:layout_constraintVertical_bias="0.621" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
-
-
