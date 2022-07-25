@@ -19,7 +19,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 
-import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 
 import android.media.FaceDetector;
@@ -32,7 +31,7 @@ import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannelFear();
         createNotificationChannelDisgust();
 
-        mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.drift_off);
+        mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.bgm);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
