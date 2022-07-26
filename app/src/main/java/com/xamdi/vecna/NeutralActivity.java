@@ -25,11 +25,11 @@ public class NeutralActivity extends AppCompatActivity {
         setContentView(R.layout.activity_neutral);
         imageSlider = findViewById(R.id.imageslider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BNGQwZjg5YmYtY2VkNC00NzliLTljYTctNzI5NmU3MjE2ODQzXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://images-na.ssl-images-amazon.com/images/I/71epG0m0KZL._RI_.jpg", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMTY0NDY3MDMxN15BMl5BanBnXkFtZTcwOTM5NzMzOQ@@._V1_FMjpg_UX1000_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://upload.wikimedia.org/wikipedia/en/0/05/Up_%282009_film%29.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://upload.wikimedia.org/wikipedia/en/a/a4/Ford_v._Ferrari_%282019_film_poster%29.png",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://upload.wikimedia.org/wikipedia/en/a/a2/C.I.D._Moosa.jpg",ScaleTypes.FIT));
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
         moreHelp = findViewById(R.id.morehelp);
@@ -51,7 +51,7 @@ public class NeutralActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/1cV7hW9JSoNBJOg7ez73cF?si=82c245b00d644318");
+                goToUrl("https://open.spotify.com/playlist/0fDvDwm7Voy7UdD9hOV2fA?si=7dd83443235044b8");
             }
         });
         pl3 = findViewById(R.id.playlist3);
@@ -59,7 +59,7 @@ public class NeutralActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/0LJ37WDbjuQRaQ89miPnRw?si=59de505b56554c0c");
+                goToUrl("https://open.spotify.com/playlist/3Dfh3ONYa2GlXKJcuAQWcR?si=b41da2aa4a9744a1");
             }
         });
     }

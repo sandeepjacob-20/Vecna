@@ -25,11 +25,11 @@ public class FearActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fear);
         imageSlider = findViewById(R.id.imageslider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BNGQwZjg5YmYtY2VkNC00NzliLTljYTctNzI5NmU3MjE2ODQzXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BOTY2NzFjODctOWUzMC00MGZhLTlhNjMtM2Y2ODBiNGY1ZWRiXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BOWM0YWMwMDQtMjE5NS00ZTIwLWE1NWEtODViMWZjMWI2OTU3XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMDNkODA5ZGQtODczOS00OTQxLThhMTItMjk0ZmNhMDM0YjNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BODQ0NDhjYWItYTMxZi00NTk2LWIzNDEtOWZiYWYxZjc2MTgxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg",ScaleTypes.FIT));
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
         moreHelp = findViewById(R.id.morehelp);
@@ -43,7 +43,7 @@ public class FearActivity extends AppCompatActivity {
         pl1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/2yoO1HV8OgicpB1zsNrvXX?si=1f2607ea59fd471c");
+                goToUrl("https://open.spotify.com/playlist/59nXDqu2HH0a29kstSDtIt?si=f5bf90476cec4d4d");
             }
         });
         pl2 = findViewById(R.id.playlist2);
@@ -51,7 +51,7 @@ public class FearActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/1cV7hW9JSoNBJOg7ez73cF?si=82c245b00d644318");
+                goToUrl("https://open.spotify.com/playlist/5guQ9wepudF424LrgYwlEk?si=d2d64f6ea5a7417d");
             }
         });
         pl3 = findViewById(R.id.playlist3);
@@ -59,7 +59,7 @@ public class FearActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/0LJ37WDbjuQRaQ89miPnRw?si=59de505b56554c0c");
+                goToUrl("https://open.spotify.com/playlist/7smq9JFtBbwuyFc6dUB2GO?si=107200e3f4774d70");
             }
         });
     }
