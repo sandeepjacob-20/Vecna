@@ -1,10 +1,5 @@
 package com.xamdi.vecna;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -18,22 +13,23 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
-
 import android.hardware.Camera;
-
 import android.media.FaceDetector;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
-
-
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -140,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         neutral = new NotificationCompat.Builder(this, "2")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("Wanna do something fun ?")
+                .setContentText("Wanna do  ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentNeutral)

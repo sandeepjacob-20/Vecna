@@ -42,7 +42,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/happy_p1" />
+                    android:src="@drawable/angry1" />
 
                 <ImageButton
                     android:id="@+id/playlist2"
@@ -50,7 +50,7 @@
                     android:layout_height="249dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/happy_p2" />
+                    android:src="@drawable/angry2" />
 
                 <ImageButton
                     android:id="@+id/playlist3"
@@ -58,7 +58,7 @@
                     android:layout_height="249dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/happy_p3" />
+                    android:src="@drawable/angry3" />
 
             </LinearLayout>
 

@@ -25,11 +25,11 @@ public class AngryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_angry);
         imageSlider = findViewById(R.id.imageslider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BNGQwZjg5YmYtY2VkNC00NzliLTljYTctNzI5NmU3MjE2ODQzXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_.jpg",ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://flxt.tmsimg.com/assets/p8051212_p_v8_ax.jpg", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Spider-Man_Into_the_Spider-Verse_poster.png/220px-Spider-Man_Into_the_Spider-Verse_poster.png",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://m.media-amazon.com/images/M/MV5BZGFmMjM5OWMtZTRiNC00ODhlLThlYTItYTcyZDMyYmMyYjFjXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://i.ytimg.com/vi/OVTGHtHbG60/movieposter_en.jpg",ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://static.wikia.nocookie.net/dreamworks/images/5/5f/B3B13E6A-B311-4264-8353-76F72E4E5D20.jpeg/revision/latest?cb=20180812164058",ScaleTypes.FIT));
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
         moreHelp = findViewById(R.id.morehelp);
@@ -43,7 +43,7 @@ public class AngryActivity extends AppCompatActivity {
         pl1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/2yoO1HV8OgicpB1zsNrvXX?si=1f2607ea59fd471c");
+                goToUrl("https://open.spotify.com/playlist/4f6tpmRrnm16JyZb8COpnC?si=60d36c0d53054ab9");
             }
         });
         pl2 = findViewById(R.id.playlist2);
@@ -51,7 +51,7 @@ public class AngryActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/1cV7hW9JSoNBJOg7ez73cF?si=82c245b00d644318");
+                goToUrl("https://open.spotify.com/playlist/3Kkyci0F5Bwf5zA8gD5ITQ?si=7c6e5b57de0a474d");
             }
         });
         pl3 = findViewById(R.id.playlist3);
@@ -59,7 +59,7 @@ public class AngryActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/0LJ37WDbjuQRaQ89miPnRw?si=59de505b56554c0c");
+                goToUrl("https://open.spotify.com/playlist/3RY8bxHLCbIJPFNkgxzEAQ?si=8cdee9291e5149a5");
             }
         });
     }
