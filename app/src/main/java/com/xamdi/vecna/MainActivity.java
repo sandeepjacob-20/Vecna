@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Happy notification Builder
         happy = new NotificationCompat.Builder(this, "1")
-                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
                 .setContentText("Feeling Happy ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 .setAutoCancel(true);
         //Neutral notification Builder
         neutral = new NotificationCompat.Builder(this, "2")
-                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
                 .setContentText("Wanna do something fun ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 .setAutoCancel(true);
         //Angry notification Builder
         angry = new NotificationCompat.Builder(this, "3")
-                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
                 .setContentText("Felling pissed ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 .setAutoCancel(true);
         //Sad notification Builder
         sad = new NotificationCompat.Builder(this, "4")
-                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
                 .setContentText("karayugeyano unni ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 .setAutoCancel(true);
         //Surprise notification Builder
         surprise = new NotificationCompat.Builder(this, "5")
-                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
                 .setContentText("Thangal Nyettiyo ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
 
         //fear notification Builder
         fear = new NotificationCompat.Builder(this, "6")
-                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
                 .setContentText("Aarelum bhayakuno ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 .setAutoCancel(true);
         //Disgust notification Builder
         disgust = new NotificationCompat.Builder(this, "7")
-                .setSmallIcon(R.drawable.ic_baseline_add_alert_24)
+                .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
                 .setContentText("feeling Disgust ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
