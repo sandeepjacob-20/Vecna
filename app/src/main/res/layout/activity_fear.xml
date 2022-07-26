@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteY="1dp"
     android:fillViewport="true"
     android:scaleType="centerInside"
-    android:background="@drawable/bgh">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -64,6 +64,18 @@
 
         </HorizontalScrollView>
 
+        <ImageView
+            android:id="@+id/fear"
+            android:layout_width="71dp"
+            android:layout_height="64dp"
+            android:src="@drawable/fear"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.215"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -80,17 +92,17 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="260dp"
-            android:layout_height="121dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/annie_use_your_telescope"
+            android:layout_width="240dp"
+            android:layout_height="106dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/baloo_bhai"
             android:gravity="center"
             android:text="FEAR"
             android:textColor="@color/black"
-            android:textSize="96sp"
+            android:textSize="60sp"
             app:autoSizeTextType="none"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.585"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

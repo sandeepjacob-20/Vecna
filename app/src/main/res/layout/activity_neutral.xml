@@ -25,7 +25,7 @@
             android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             app:layout_constraintVertical_bias="0.0">
@@ -68,29 +68,41 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="364dp"
+            android:layout_marginTop="336dp"
             android:fontFamily="@font/baloo_bhai"
             android:text="Song recommendations for you :"
             android:textColor="@color/black"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintHorizontal_bias="0.111"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/neutral"
+            android:layout_width="68dp"
+            android:layout_height="63dp"
+            android:src="@drawable/neutral"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.137"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.457" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="260dp"
             android:layout_height="121dp"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/annie_use_your_telescope"
+            android:fontFamily="@font/baloo_bhai"
             android:gravity="center"
             android:text="NEUTRAL"
             android:textColor="@color/black"
-            android:textSize="70sp"
+            android:textSize="60sp"
             app:autoSizeTextType="none"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.664"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,13 +110,13 @@
             android:id="@+id/textView4"
             android:layout_width="321dp"
             android:layout_height="26dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/baloo_bhai"
             android:text="Fun things to do :"
             android:textColor="@color/black"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintHorizontal_bias="0.227"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -112,7 +124,7 @@
             android:id="@+id/textView6"
             android:layout_width="370dp"
             android:layout_height="152dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="172dp"
             android:ems="10"
             android:fontFamily="@font/baloo_bhai"
             android:gravity="start|top"
@@ -121,6 +133,7 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

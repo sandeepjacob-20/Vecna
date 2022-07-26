@@ -10,9 +10,18 @@
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_fear.xml" value="0.19583333333333333" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_happy.xml" value="0.19041916167664671" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_neutral.xml" value="0.33" />
+        <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_neutral.xml" value="0.2" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_sad.xml" value="0.2" />
         <entry key="..\:/Test apps/Vecna/app/src/main/res/layout/activity_surprise.xml" value="0.2" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_angry.xml" value="0.2" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_disgust.xml" value="0.25" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_fear.xml" value="0.26490066225165565" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_happy.xml" value="0.11644591611479028" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_neutral.xml" value="0.25" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_sad.xml" value="0.25" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/activity_surprise.xml" value="0.25" />
+        <entry key="..\:/Vecna/app/src/main/res/layout/main.xml" value="0.25" />
       </map>
     </option>
   </component>
