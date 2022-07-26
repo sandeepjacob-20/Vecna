@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         happy = new NotificationCompat.Builder(this, "1")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("Feeling Happy ?")
+                .setContentText("Feeling good ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentHappy)
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         neutral = new NotificationCompat.Builder(this, "2")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("Wanna do  ?")
+                .setContentText("Feeling Bored ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentNeutral)
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         angry = new NotificationCompat.Builder(this, "3")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("Felling pissed ?")
+                .setContentText("How can I make this better ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentAngry)
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         sad = new NotificationCompat.Builder(this, "4")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("karayugeyano unni ?")
+                .setContentText("Rough day huh ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentSad)
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         surprise = new NotificationCompat.Builder(this, "5")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("Thangal Nyettiyo ?")
+                .setContentText("Oh no, we haven't added that yet 😬")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentSurprise)
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         fear = new NotificationCompat.Builder(this, "6")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("Aarelum bhayakuno ?")
+                .setContentText("Is something bothering you ?")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentFear)
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         disgust = new NotificationCompat.Builder(this, "7")
                 .setSmallIcon(R.drawable.hope)
                 .setContentTitle("Vecna")
-                .setContentText("feeling Disgust ?")
+                .setContentText("Oh no, we haven't added that yet 😬 ")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntentDisgust)
