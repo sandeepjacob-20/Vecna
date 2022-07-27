@@ -43,7 +43,7 @@ public class NeutralActivity extends AppCompatActivity {
         pl1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToUrl("https://open.spotify.com/playlist/2yoO1HV8OgicpB1zsNrvXX?si=1f2607ea59fd471c");
+                goToUrl("https://open.spotify.com/playlist/5FYrhTYhYcosB5Xp4TNdJN?si=6af835c88b6946dd");
             }
         });
         pl2 = findViewById(R.id.playlist2);

@@ -240,14 +240,14 @@ public class MainActivity extends AppCompatActivity {
             Helper h = setFace(facedet);
             fcount = h.count; //Number of faces in the image
             croppedbmp = h.cropped_img; //Bitmap image of the face only
-            Toast.makeText(MainActivity.this, "Face count - " + fcount, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "Face count - " + fcount, Toast.LENGTH_SHORT).show();
 
             //calling mood detection method
             if (fcount == 1) {
                 detect(croppedbmp);
             }
             if (fcount > 1) {
-                Toast.makeText(MainActivity.this, "MULTIPLE FACES DETECTED - RETAKE SNAP WITH SINGLE FACE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "No FACE DETECTED - RETAKE SNAP", Toast.LENGTH_SHORT).show();
                 tv.setText("No mood detected");
             }
             if (fcount == 0) {
